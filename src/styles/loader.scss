@@ -1,0 +1,34 @@
+.loader {
+  $size: 35px;
+  width: $size;
+  height: $size;
+  animation: loaderAnimation 0.75s 0s infinite linear;
+  animation-fill-mode: both;
+  border: 2px solid;
+  border-color:  $primary-color $primary-color transparent;
+  border-radius: 100%;
+  background-color: transparent;
+}
+
+@-webkit-keyframes loaderAnimation {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}
+@keyframes loaderAnimation {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  50% {
+    transform: rotate(180deg) scale(0.8);
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+  }
+}

@@ -1,9 +1,25 @@
 @import "flex";
 @import "normalize";
+@import "loader";
 
 @include normalize();
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
 body {
   background-color: $page-background-color;
-  font-family: sans-serif;
+  overflow-y: scroll;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: $primary-color;
 }
