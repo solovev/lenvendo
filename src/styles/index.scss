@@ -1,6 +1,9 @@
-$body-color: slateblue;
+@import "flex";
+@import "normalize";
+
+@include normalize();
 
 body {
-  color: $body-color;
+  background-color: $page-background-color;
   font-family: sans-serif;
 }
