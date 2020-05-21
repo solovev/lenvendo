@@ -1,0 +1,73 @@
+.search-bar {
+  margin: 0 auto;
+  min-height: $search-bar-height;
+  border-radius: $block-radius * 3;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding: 0 $base-offset * 2;
+  overflow: hidden;
+  flex-wrap: wrap;
+
+  @media (min-width: 1280px) {
+    $width: $max-tile-width * 2 + ($base-offset * 6);
+    width: $width;
+    max-width: $width;
+    min-width: $search-bar-min-width;
+  }
+
+  input {
+    min-width: $search-bar-min-width;
+    height: $search-bar-height;
+    margin-left: $base-offset;
+  }
+
+  $icon-size: $base-offset * 3;
+  & svg {
+    width: $icon-size;
+    height: $icon-size;
+    fill: $faded-text-color;
+  }
+
+  &:focus-within {
+    & svg {
+      fill: $primary-color;
+    }
+  }
+
+  .mode-controls,
+  .sort-controls {
+    color: $faded-text-color;
+    height: $search-bar-height;
+    margin-left: $base-offset;
+  
+    &::before {
+      content: attr(data-label);
+    }
+  
+    &__option {
+      margin-left: $base-offset;
+    }
+  }
+}
+
+.sort-controls {
+  &__option.selected {
+    &::before {
+      content: '▴';
+      margin-right: $base-offset;
+    }
+
+    &.desc::before {
+      content: '▾';
+    }
+  }
+
+  &::after {
+    content: '';
+    display: block;
+    width: 1px;
+    height: 70%;
+    margin: 0 $base-offset;
+    background-color: $line-color;
+  }
+}

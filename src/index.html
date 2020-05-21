@@ -6,6 +6,41 @@
   <title>Lenvendo</title>
 </head>
 <body>
-  <div class="loader" id="loader"></div>
+  <div class="search-bar tile row row--center" id="search-bar">
+    <div class="row item-stretch">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="4993 112 20 20" width="24" height="24">
+        <g transform="translate(2047 879)">
+          <path
+            d="M13.221,14.28l-2.9-2.9A6.375,6.375,0,0,1,0,6.375H1.5A4.875,4.875,0,1,0,6.375,1.5,4.875,4.875,0,0,0,1.5,6.375H0a6.375,6.375,0,1,1,11.383,3.946l2.9,2.9a.75.75,0,0,1-1.061,1.061Z"
+            transform="translate(2949 -764)"
+          />
+        </g>
+      </svg>
+      <input
+        ref="input"
+        type="text"
+        class="item-stretch"
+        placeholder="Search..."
+      />
+    </div>
+    <div class="row sort-controls" data-label="Sort by:">
+      <div class="button sort-controls__option selected" data-value="name">Name</div>
+      <div class="button sort-controls__option " data-value="price">Price</div>
+    </div>
+    <div class="row mode-controls" data-label="View mode:">
+      <div class="button mode-controls__option selected" data-value="list">List</div>
+      <div class="button mode-controls__option" data-value="tile">Tile</div>
+      <div class="button mode-controls__option" data-value="table">Table</div>
+    </div>
+  </div>
+  <div class="column">
+    <div class="tile message hidden" id="message"></div>
+    <div class="column" id="products">
+      <div class="loader" id="loader"></div>
+      <div class="row page-nav hidden" id="page-nav-top"></div>
+      <div class="list"></div>
+      <div class="row page-nav hidden" id="page-nav-bottom"></div>
+    </div>
+  </div>
 </body>
 </html>

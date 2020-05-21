@@ -1,0 +1,112 @@
+#products {
+  position: relative;
+  min-width: $search-bar-min-width;
+  align-items: center;
+
+  &.loading {
+    &::after {
+      content: '';
+      background-color: $page-background-color;
+      opacity: 0.5;
+      @include absolute-stretch();
+    }
+  }
+
+  .page-nav {
+    color: $faded-text-color;
+    margin: $base-offset * 2;
+    font-weight: bold;
+
+    &__item {
+      width: 18px;
+      padding: $base-offset / 2 auto;
+      margin: 0 $base-offset / 2;
+      text-align: center;
+
+      &::before {
+        content: attr(data-value);
+      }
+
+      &--jump {
+        color: $primary-color;
+        font-size: 16px;
+      }
+    }
+  }
+
+  .list {
+    table {
+      border-collapse: collapse;
+      border-radius: 0 !important;
+    }
+
+    th,
+    td {
+      padding: $base-offset * 2;
+      border: 1px solid $line-color;
+    }
+
+    .image {
+      $height: 200px;
+      position: relative;
+      height: $height;
+      width: $height * 2/3;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: contain;
+      border-radius: $block-radius;
+    }
+
+    .tile-list {
+      flex-wrap: wrap;
+
+      & > .list-item {
+        width: $search-bar-min-width;
+        margin: $base-offset;
+      }
+    }
+
+    &[data-type="list"] {
+      width: 100%;
+      max-width: 640px;
+
+      .list-item {
+        &__name {
+          width: auto !important;
+          white-space: pre-wrap;
+        }
+      }
+    }
+
+    .list-item {
+      margin: $base-offset * 2 0;
+      padding: $base-offset $base-offset * 2;
+
+      &__data {
+        align-self: stretch;
+        padding: $base-offset * 2 $base-offset;
+      }
+
+      &__name {
+        width: 100%;
+      }
+
+      &__price {
+        margin-top: $base-offset;
+        color: $faded-text-color;
+        font-weight: bold;
+
+        &::before {
+          content: attr(data-label);
+          font-weight: normal;
+          margin-right: $base-offset / 2;
+        }
+
+        &::after {
+          content: attr(data-currency);
+          font-weight: normal;
+        }
+      }
+    }
+  }
+}

@@ -1,6 +1,9 @@
 @import "flex";
 @import "normalize";
+@import "common";
 @import "loader";
+@import "search-bar";
+@import "products";
 
 @include normalize();
 
@@ -8,12 +11,15 @@ html,
 body {
   margin: 0;
   padding: 0;
-  height: 100%;
 }
 
 body {
   background-color: $page-background-color;
   overflow-y: scroll;
+
+  font-family: Avenir, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body::-webkit-scrollbar {
@@ -22,4 +28,19 @@ body::-webkit-scrollbar {
 
 body::-webkit-scrollbar-thumb {
   background-color: $primary-color;
+}
+
+input {
+  outline: none;
+  border: none;
+  padding: 0;
+
+  &::placeholder {
+    color: $faded-text-color;
+  }
+  
+}
+
+.hidden {
+  display: none !important;
 }

@@ -15,6 +15,7 @@ module.exports = {
   output: {
     path: Path.join(__dirname, '../build'),
     filename: 'js/[name].js',
+    publicPath: 'http://localhost:8080/',
   },
   optimization: {
     splitChunks: {
@@ -29,10 +30,14 @@ module.exports = {
     ]),
     new HtmlWebpackPlugin({
       template: Path.resolve(__dirname, '../src/index.html'),
-    }),
+    })
   ],
   module: {
     rules: [
+      {
+        test: /\.html$/i,
+        loader: 'html-loader',
+      },
       {
         test: /\.mjs$/,
         include: /node_modules/,
