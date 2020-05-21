@@ -9,8 +9,11 @@ view.init();
 const pageRoute = '/page/:id';
 const homeRoute = '/';
 
+export const getURL = (page) => pageRoute.replace(':id', page);
+
 export const setURL = (page) => {
-  navigation.setState(pageRoute.replace(':id', page), { replace: true });
+  const url = getURL(page);
+  navigation.setState(url, { replace: true });
 };
 
 export const navigateToPage = (page) => {

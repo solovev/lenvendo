@@ -23,10 +23,6 @@
       margin: 0 $base-offset / 2;
       text-align: center;
 
-      &::before {
-        content: attr(data-value);
-      }
-
       &--jump {
         color: $primary-color;
         font-size: 16px;

@@ -2,6 +2,7 @@ import store from '@/store';
 import { createElement, hideElement } from '@/view/utils';
 import MatchMediaListener from '@/view/utils/match-media-listener';
 import { navigateToPage } from '@';
+import { getURL } from '..';
 
 export default class PageNav {
   constructor(id) {
@@ -38,6 +39,8 @@ export default class PageNav {
   }
 
   _handleClick(e) {
+    e.preventDefault();
+
     const { target } = e;
     const value = target.getAttribute('data-value');
     if (!value) return;
@@ -86,16 +89,38 @@ export default class PageNav {
   }
 
   _createButtonElement(label, currentPage) {
+    let page;
+    switch (label) {
+      case this.jumpStartLabel: {
+        page = 1;
+        break;
+      }
+      case this.jumpEndLabel: {
+        const { numberOfPages } = store.state;
+        page = numberOfPages;
+        break;
+      }
+      default: {
+        page = +label;
+        break;
+      }
+    }
+
     const classData = {
       'button page-nav__item': true,
       'page-nav__item--jump': this._isJumpLabel(label),
-      selected: currentPage === +label,
+      selected: currentPage === page,
     };
 
-    return createElement('div', {
-      class: classData,
-      'data-value': label,
-    });
+    return createElement(
+      'a',
+      {
+        class: classData,
+        'data-value': page,
+        href: getURL(page),
+      },
+      label
+    );
   }
 
   _createLabels({ numberOfPages, currentPage }) {

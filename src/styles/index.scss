@@ -41,6 +41,16 @@ input {
   
 }
 
+a {
+  outline: none;
+  color: inherit;
+  text-decoration: none !important;
+
+  &:hover {
+    color: inherit;
+  }
+}
+
 .hidden {
   display: none !important;
 }
