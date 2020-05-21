@@ -32,7 +32,6 @@ class Navigation {
         route = route.substring(0, argumentIndex);
       }
 
-      console.log(url, route);
       if (url.indexOf(route) === 0) {
         argumentValue = url.substring(route.length);
         return true;

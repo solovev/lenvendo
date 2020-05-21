@@ -3,16 +3,22 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
+const port = 8085;
+
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
   output: {
     chunkFilename: 'js/[name].chunk.js',
   },
+  output: {
+    publicPath: `http://localhost:${port}/`,
+  },
   devServer: {
     inline: true,
     hot: true,
     historyApiFallback: true,
+    port: port,
     headers: {
       'Access-Control-Allow-Origin': '*',
       'Access-Control-Allow-Headers':

@@ -7,7 +7,7 @@ $ cd lenvendo
 $ npm install && npm run serve
 ```
 
-Адрес: [http://localhost:8080/](http://localhost:8080/ ).
+Адрес: [http://localhost:8085/](http://localhost:8085/ ).
 
 ### Зависимости
 * `axios` - Для HTTP запросов
