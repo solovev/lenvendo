@@ -31,15 +31,14 @@ export default class SearchBar {
     const sortField = target.getAttribute('data-value');
     if (!sortField) return;
 
-    let sortDirection;
-
     const isSelected = toggleElementSelection(target);
     if (isSelected) {
-      const value = target.classList.toggle('desc');
-      sortDirection = value ? 'desc' : 'asc';
+      target.classList.toggle('desc');
     } else {
       target.classList.remove('desc');
     }
+
+    const sortDirection = target.classList.contains('desc') ? 'desc' : 'asc';
     store.setSearchData({ sortField, sortDirection });
   }
 
