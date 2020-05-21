@@ -5,7 +5,7 @@ import { navigateToPage } from '@';
 import { getURL } from '..';
 
 export default class PageNav {
-  constructor(id) {
+  constructor({ id }) {
     this.element = document.getElementById(id);
 
     this.jumpStartLabel = '‹';

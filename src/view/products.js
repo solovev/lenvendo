@@ -8,8 +8,8 @@ export default class Products {
     this.element = document.getElementById('products');
 
     this.list = this.element.querySelector('.list');
-    this.topNav = new PageNav('page-nav-top');
-    this.bottomNav = new PageNav('page-nav-bottom');
+    this.topNav = new PageNav({ id: 'page-nav-top' });
+    this.bottomNav = new PageNav({ id: 'page-nav-bottom' });
   }
 
   init() {
@@ -17,10 +17,11 @@ export default class Products {
     this.bottomNav.init();
 
     this.rebuild = this._rebuild.bind(this);
-    this.handleLoadingChanged = this._handleLoadingChanged.bind(this);
-    store.addEventListener('onLoadingStateChanged', this.handleLoadingChanged);
     store.addEventListener('onProductDataChanged', this.rebuild);
     store.addEventListener('onDisplayModeChanged', this.rebuild);
+
+    this.handleLoadingChanged = this._handleLoadingChanged.bind(this);
+    store.addEventListener('onLoadingStateChanged', this.handleLoadingChanged);
   }
 
   dispose() {
