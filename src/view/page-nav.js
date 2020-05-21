@@ -16,6 +16,8 @@ export default class PageNav {
   init() {
     this.redraw = this._redraw.bind(this);
 
+    // Начинаем слушать изменение ширины окна, если ширина станет меньше 1280 пикселей,
+    // то уменьшаем количество кнопок перехода по страницам.
     this.mediaListener = new MatchMediaListener({
       query: 'min-width: 1280px',
       callback: (isMatch) => {
@@ -68,13 +70,15 @@ export default class PageNav {
     const pageLabels = this._createLabels({ currentPage, numberOfPages });
     if (pageLabels.length <= 0) return;
 
-    hideElement(this.element, false);
-
+    // Если первая кнопка в навигации не отправляет на первую страницу, то
+    // добавляем кнопку для прыжка в начало (на первую страницу)
     const firstButtonLabel = pageLabels[0];
     if (firstButtonLabel != 1) {
       pageLabels.unshift(this.jumpStartLabel);
     }
 
+    // Аналогично, если последняя кнопка в навигации не отправляет на последняю страницу, то
+    // добавляем кнопку для прыжка в конец (на последняю страницу)
     const lastButtonLabel = pageLabels[pageLabels.length - 1];
     if (lastButtonLabel != numberOfPages) {
       pageLabels.push(this.jumpEndLabel);

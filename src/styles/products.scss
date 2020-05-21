@@ -78,6 +78,14 @@
       margin: $base-offset * 2 0;
       padding: $base-offset $base-offset * 2;
 
+      &:first-child {
+        margin-top: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
       &__data {
         align-self: stretch;
         padding: $base-offset * 2 $base-offset;
